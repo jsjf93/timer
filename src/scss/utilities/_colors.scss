@@ -1,0 +1,9 @@
+@each $color-name, $color-hex in $colors {
+  .has-#{$color-name}-text {
+    color: $color-hex !important;
+  }
+
+  .has-#{$color-name}-background {
+    background-color: $color-hex !important;
+  }
+}

@@ -1,0 +1,37 @@
+@mixin button-theme(
+  $bg-color,
+  $txt-color,
+  $brd-color: $bg-color,
+  $bg-hover-color: lighten($bg-color, 5%),
+  $txt-hover-color: $txt-color,
+  $brd-hover-color: $bg-hover-color
+) {
+  background-color: $bg-color;
+  border-color: $brd-color;
+  color: $txt-color;
+
+  &:hover {
+    background-color: $bg-hover-color;
+    border-color: $brd-hover-color;
+    color: $txt-hover-color;
+  }
+
+  &[disabled] {
+    background-color: $bg-color;
+    border-color: $brd-color;
+  }
+
+  &:focus,
+  &:active,
+  &:focus:not(:active) {
+    color: $txt-color !important;
+    box-shadow: none !important;
+    border-color: $brd-color !important;
+  }
+}
+
+@mixin screen($screen-size) {
+  @media (max-width: $screen-size) {
+    @content;
+  }
+}

@@ -1,0 +1,23 @@
+.app {
+  text-align: center;
+}
+
+.logo-container {
+  margin: 50px;
+}
+
+.logo {
+  width: 100px;
+  animation: rotation 3s linear infinite;
+  position: relative;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
