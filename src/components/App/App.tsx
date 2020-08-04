@@ -4,6 +4,7 @@ import moment from 'moment';
 import './App.scss';
 import Countdown from '../Timer/Countdown/Countdown';
 import ProgressBar from '../Timer/ProgressBar/ProgressBar';
+import Button from '../Button/Button';
 
 const tempValue = moment.duration({ minutes: 20, seconds: 0 });
 
@@ -33,6 +34,7 @@ const App = () => {
 
       <Countdown timer={timer} />
       <ProgressBar timer={timer} percentage={percentage} />
+      <Button isActive={isActive} onClick={() => setIsActive(!isActive)} />
     </div>
   );
 };
