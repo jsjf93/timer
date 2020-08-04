@@ -67,7 +67,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test a -- --coverage --watchAll=false && lint-staged"
+      "pre-commit": "npm test -- --coverage --watchAll=false --passWithNoTests && lint-staged"
     }
   },
   "lint-staged": {
