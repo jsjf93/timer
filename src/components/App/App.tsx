@@ -5,7 +5,8 @@ import useSound from 'use-sound';
 import './App.scss';
 import Countdown from '../Timer/Countdown/Countdown';
 import ProgressBar from '../Timer/ProgressBar/ProgressBar';
-import Button from '../Button/Button';
+import StartStopButton from '../Buttons/StartStopButton';
+import ResetButton from '../Buttons/ResetButton';
 
 const bellSfx = require('../../sounds/bell.mp3');
 
@@ -13,7 +14,7 @@ const tempValue = moment.duration({ minutes: 0, seconds: 10 });
 
 const App = () => {
   const [timer, setTimer] = useState<moment.Duration>(tempValue);
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const [playSound] = useSound(bellSfx);
 
   const percentage = (timer.asMilliseconds() / tempValue.asMilliseconds()) * 100;
@@ -28,7 +29,7 @@ const App = () => {
     let timeout: NodeJS.Timeout;
     if (isActive) {
       timeout = setTimeout(() => calculateTime(), 1000);
-    } else {
+    } else if (timer.asMilliseconds() === 0) {
       playSound();
     }
 
@@ -41,7 +42,8 @@ const App = () => {
 
       <Countdown timer={timer} />
       <ProgressBar timer={timer} percentage={percentage} />
-      <Button isActive={isActive} onClick={() => setIsActive(!isActive)} />
+      <StartStopButton isActive={isActive} onClick={() => setIsActive(!isActive)} />
+      <ResetButton isActive={isActive} onClick={() => setTimer(tempValue)} />
     </div>
   );
 };

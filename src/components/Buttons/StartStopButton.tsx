@@ -5,14 +5,14 @@ interface IProps {
   isActive: boolean;
 }
 
-const Button = (props: IProps) => {
+const StartStopButton = (props: IProps) => {
   const { isActive, onClick } = props;
 
   return (
-    <button onClick={onClick} style={{ color: isActive ? 'blue' : 'green' }}>
+    <button onClick={onClick} style={{ backgroundColor: isActive ? 'blue' : 'green' }}>
       {isActive ? 'Pause' : 'Start'}
     </button>
   );
 };
 
-export default Button;
+export default StartStopButton;
